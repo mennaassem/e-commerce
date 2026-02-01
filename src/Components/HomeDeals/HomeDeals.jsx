@@ -32,7 +32,7 @@ export default function HomeDeals() {
   {
     return <HomeDealsSkeleto/>
   }
-  const deals=products.filter((product)=> product.priceAfterDiscount).slice(0,10)
+  const deals=products.filter((product)=> product.priceAfterDiscount).slice(0,5)
   return (
     <>
     <section className='py-5'>
@@ -54,7 +54,7 @@ export default function HomeDeals() {
                     </div>
 
                 </div>
-                <Link className="text-primary-600 hover:text-primary-700 transition duration-200" to={`/deals`}>View All Deals</Link>
+                <Link className="text-primary-600 hover:text-primary-700 transition duration-200" to={`/all-deals`}>View All Deals</Link>
 
             </div>
             <div className="py-6 grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5">

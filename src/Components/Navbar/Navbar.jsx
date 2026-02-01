@@ -165,14 +165,12 @@ export default function Navbar() {
               <Link to={`shop`}>Shop</Link>
             </li>
              <li>
-              <Link to={`deals`}>Deals</Link>
+              <Link to={`/all-deals`}>Deals</Link>
             </li>
              <li>
               <Link to={`brands`}>Brands</Link>
             </li>
-             <li>
-              <Link to={`/`}>Home</Link>
-            </li>
+            
           </ul>
         </div>
 

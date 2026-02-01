@@ -19,6 +19,7 @@ import Brands from './Pages/Brands/Brands';
 import Notefound from './Pages/Notefound/Notefound';
 import Home from './Pages/Home/Home';
 import { ToastContainer } from 'react-toastify';
+import AllDeals from './Pages/AllDeals/AllDeals';
  
  
  
@@ -83,6 +84,10 @@ import { ToastContainer } from 'react-toastify';
           path:"brands",
           element:<Brands/>
         }, 
+         {
+          path:"all-deals",
+          element:<AllDeals/>
+        },
         {
           path:"*",
           element:<Notefound/>

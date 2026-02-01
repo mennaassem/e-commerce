@@ -8,6 +8,7 @@ import { calcDisCount } from '../../utils/discount'
 import Rating from '../Rating/Rating'
 
 export default function ProductCard({productInfo}) {
+
   const {imageCover,price,ratingsAverage,category,title,ratingsQuantity,priceAfterDiscount}=productInfo
     return (
     <>
@@ -28,8 +29,8 @@ export default function ProductCard({productInfo}) {
              
             <div className="flex justify-between items-center">
                  <div className='price space-x-2'>
-                    <span className="text-lg text-primary-600 font-bold">{price}$</span>
-                    <del className='text-gray-500'>{priceAfterDiscount}$</del>
+                    <span className="text-lg text-primary-600 font-bold">{priceAfterDiscount ? priceAfterDiscount : price}$</span>
+                 {priceAfterDiscount &&<del className='text-gray-500'>{price}$</del>}
                  </div>
                  <button className="btn hover:bg-primary-700 transition-colors duration-200 bg-primary-600 text-white rounded-full p-0 size-8">
                     <FontAwesomeIcon icon={faPlus} />
@@ -48,7 +49,7 @@ export default function ProductCard({productInfo}) {
                                 </Link>
                             </button>
                 </div>
-                 <span className="badges text-sm badges absolute top-4 left-4 bg-red-600 text-white px-2 py-1 rounded-md">-{calcDisCount(price,priceAfterDiscount)}%</span>
+                  {priceAfterDiscount && <span className="badges text-sm badges absolute top-4 left-4 bg-red-600 text-white px-2 py-1 rounded-md">-{calcDisCount(price,priceAfterDiscount)}%</span>}
         </div>
         </div>
 
