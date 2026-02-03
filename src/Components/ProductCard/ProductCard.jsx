@@ -9,17 +9,22 @@ import Rating from '../Rating/Rating'
 
 export default function ProductCard({productInfo}) {
 
-  const {imageCover,price,ratingsAverage,category,title,ratingsQuantity,priceAfterDiscount}=productInfo
+  const {id,imageCover,price,ratingsAverage,category,title,ratingsQuantity,priceAfterDiscount}=productInfo
     return (
     <>
     <section>
         <div className="card   bg-white relative rounded-xl shadow-lg overflow-hidden border border-primary-600/20 ">
         <div className="relative">
-            <img src={imageCover} className="w-44 h-52 object-contain  mx-auto"/>
+           <Link className='block'  to={`/productdetails/${id}`}>
+                                   <img src={imageCover}  className="w-44 h-52 object-contain  mx-auto" />
+                                </Link>
+            
         </div>
         <div className="content  p-4 space-y-1.5">
             <span className='text-sm  text-gray-500'>{category.name}</span>
-            <h2 className='font-semibold line-clamp-1'>{title}</h2>
+            <h2 className='font-semibold line-clamp-1'> 
+              <Link  to={`/productdetails/${id}`}>{title}</Link>
+            </h2>
             <div className="rating flex gap-2 items-center">
               <Rating rating={ratingsAverage}/>
                 <span>({ratingsAverage})</span>
@@ -44,7 +49,7 @@ export default function ProductCard({productInfo}) {
                               <FontAwesomeIcon icon={faCodeCompare} />
                             </button>
                             <button>
-                                <Link to={`/product`}>
+                                <Link to={`/productdetails/${id}`}>
                                  <FontAwesomeIcon icon={faEye} />
                                 </Link>
                             </button>

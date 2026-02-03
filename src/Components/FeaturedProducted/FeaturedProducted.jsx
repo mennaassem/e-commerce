@@ -3,6 +3,8 @@ import Loading from '../Loading/Loading'
 import ProductCard from '../ProductCard/ProductCard'
 import { getAllProducts } from '../../services/product-servier'
  
+ 
+ 
 
 export default function FeaturedProducted() {
     const[featuredProduct,setIsFeaturedProducted]=useState([])

@@ -22,4 +22,19 @@ import { apiClient } from "./api-client"
         
     }
 }
+
+  export function getSpecificProduct({id}){
+    try {
+        const options={
+             method: "GET",
+        url:`/products/${id}`
+
+        }
+        const response=apiClient.request(options)
+        return response
+    } catch (error) {
+        throw error
+        
+    }
+}
  

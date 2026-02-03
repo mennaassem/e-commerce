@@ -7,15 +7,33 @@ import { API_CONFIG } from "../config/config";
     timeout:30000
 });
 
-apiClient.interceptors.response.use((response)=>{
-    return Promise.resolve({
-        success: true,
-        data:response.data
-    })
-},(error)=>{
+// apiClient.interceptors.response.use((response)=>{
+//     return Promise.resolve({
+//         success: true,
+//         data:response.data
+//     })
+// },(error)=>{
+//     return Promise.reject({
+//          success:false,
+//     error:error,
+//     message:error.response.data.message
+//     })
+// })
+apiClient.interceptors.response.use(
+  (response) => {
+    return {
+      success: true,
+      data: response.data,
+    };
+  },
+  (error) => {
     return Promise.reject({
-         success:false,
-    error:error,
-    message:error.response.data.message
-    })
-})
+      success: false,
+      error,
+      message:
+        error?.response?.data?.message ||
+        error?.message ||
+        "Something went wrong",
+    });
+  }
+);

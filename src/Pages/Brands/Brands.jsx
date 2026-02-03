@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 import Loading from '../../Components/Loading/Loading'
 import BrandsCard from './../../Components/BrandsCard/BrandsCard';
 import { getAllBrands } from '../../services/brands-servier';
+import BrandsSkeleton from '../../Components/Skeleton/BrandsSkeleton';
+ 
+ 
 
 export default function Brands() {
   const[brands,setIsBrands]=useState([])
@@ -29,7 +32,7 @@ export default function Brands() {
        fetchBrands()
        },[])
        if(loading){
-          return <Loading/>
+          return <BrandsSkeleton/>
        }
   return (
     <>
