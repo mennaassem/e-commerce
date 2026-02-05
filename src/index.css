@@ -56,4 +56,21 @@ button , a{
   gap: 5px; 
   font-weight: 800;
 }
+.image-gallery-wrapper {
+  pointer-events: auto;
+}
+
+.image-gallery {
+  overflow: visible !important;
+}
+
+.image-gallery-slide-wrapper {
+  pointer-events: none;
+}
+
+.image-gallery-icon,
+.image-gallery-thumbnails-wrapper {
+  pointer-events: auto;
+}
+
  

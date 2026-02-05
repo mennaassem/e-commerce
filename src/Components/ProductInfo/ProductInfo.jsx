@@ -9,7 +9,7 @@ import ImageGallery from "react-image-gallery"
 
 export default function ProductInfo({ product }) {
   if (!product) return <Loading/>
-  console.log(product)
+  // console.log(product)
   
   const{images
 ,
@@ -25,25 +25,50 @@ ratingsAverage
 title
 
 }=product 
+ 
   return (
     <>
+    <nav className="p-2 text-sm font-semibold text-gray-500 mb-4 bg-white">
+ <div className="container">
+    <ol className="flex items-center space-x-2">
+    <li>
+      <a href="/" className="hover:text-primary-600">
+        Home
+      </a>
+    </li>
+
+    <li>/</li>
+
+    <li>
+      <a href="/fruits-vegetables" className="hover:text-primary-600">
+       product-details
+      </a>
+    </li>
+
      
-   {/* <p className='container bg-white w-full py-2'>Home</p> */}
-     <div className=''>
+  </ol>
+ </div>
+</nav>
+
+     
+   
+     <div>
          
         <div className="container mx-auto py-12 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 ">
       
            {/* image-details */}
-        <div >
-
-           <ImageGallery showNav={false} showPlayButton={false} showFullscreenButton={false}   items={images.map((image)=>{
-            return{
-              original: image,
-              thumbnail:image
-            }
-           })}/>
-        </div>
+     <div className="image-gallery-wrapper">
+  <ImageGallery
+    showNav={false}
+    showPlayButton={false}
+    showFullscreenButton={false}
+    items={images.map((image) => ({
+      original: image,
+      thumbnail: image
+    }))}
+  />
+</div>
         {/* <!-- Details --> */}
         <div>
          {Number(quantity) > 0 ? (

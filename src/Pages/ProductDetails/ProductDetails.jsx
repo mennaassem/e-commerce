@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProductInfo from '../../Components/ProductInfo/ProductInfo'
 import { getSpecificProduct } from '../../services/product-servier'
 import { useParams } from 'react-router'
+import ProductDetailsTab from '../../Components/ProductDetailsTab/ProductDetailsTab'
 
 export default function ProductDetails() {
   const {id}=useParams()
@@ -29,7 +30,10 @@ export default function ProductDetails() {
     },[])
   return (
     <>
-    <ProductInfo product={productInfo}/>
+  <div className='bg-gray-100'>
+       <ProductInfo product={productInfo}/>
+  {<ProductDetailsTab product={productInfo} />}
+  </div>
     
     
     

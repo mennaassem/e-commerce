@@ -1,75 +1,180 @@
+// import React from 'react'
+// import cover from '../../assets/images/cover.jpeg'
+// import {faCodeCompare, faPlus, faStar } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { Link } from 'react-router'
+// import { faEye, faHeart } from '@fortawesome/free-regular-svg-icons'
+// import { calcDisCount } from '../../utils/discount'
+// import Rating from '../Rating/Rating'
+
+// export default function ProductCard({productInfo}) {
+
+//   const {id,imageCover,price,ratingsAverage,category,title,ratingsQuantity,priceAfterDiscount}=productInfo
+//     return (
+//     <>
+//     <section>
+//         <div className="card   bg-white relative rounded-xl shadow-lg overflow-hidden border border-primary-600/20 ">
+//         <div className="relative">
+//            <Link className='block'  to={`/productdetails/${id}`}>
+//                                    <img src={imageCover}  className="w-44 h-52 object-contain  mx-auto" />
+//                                 </Link>
+            
+//         </div>
+//         <div className="content  p-4 space-y-1.5">
+//             <span className='text-sm  text-gray-500'>{category.name}</span>
+//             <h2 className='font-semibold line-clamp-1'> 
+//               <Link  to={`/productdetails/${id}`}>{title}</Link>
+//             </h2>
+//             <div className="rating flex gap-2 items-center">
+//               <Rating rating={ratingsAverage}/>
+//                 <span>({ratingsAverage})</span>
+//                  <span>{ratingsQuantity}</span>
+                 
+//             </div>
+             
+//             <div className="flex justify-between items-center">
+//                  <div className='price space-x-2'>
+//                     <span className="text-lg text-primary-600 font-bold">{priceAfterDiscount ? priceAfterDiscount : price}$</span>
+//                  {priceAfterDiscount &&<del className='text-gray-500'>{price}$</del>}
+//                  </div>
+//                  <button className="btn hover:bg-primary-700 transition-colors duration-200 bg-primary-600 text-white rounded-full p-0 size-8">
+//                     <FontAwesomeIcon icon={faPlus} />
+//                  </button>
+//             </div>
+//                 <div className="  text-xl py-2 px-2 rounded-full actions absolute top-4 right-1 flex flex-col gap-4 *:text-gray-500 *:hover:text-primary-600 *:transition-colors *:duration-200">
+//                             <button  >
+//                                 <FontAwesomeIcon icon={faHeart} />
+//                             </button>
+//                             <button>
+//                               <FontAwesomeIcon icon={faCodeCompare} />
+//                             </button>
+//                             <button>
+//                                 <Link to={`/productdetails/${id}`}>
+//                                  <FontAwesomeIcon icon={faEye} />
+//                                 </Link>
+//                             </button>
+//                 </div>
+//                   {priceAfterDiscount && <span className="badges text-sm badges absolute top-4 left-4 bg-red-600 text-white px-2 py-1 rounded-md">-{calcDisCount(price,priceAfterDiscount)}%</span>}
+//         </div>
+//         </div>
+
+//     </section>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//     </>
+//   )
+// }
 import React from 'react'
 import cover from '../../assets/images/cover.jpeg'
-import {faCodeCompare, faPlus, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faCodeCompare, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router'
 import { faEye, faHeart } from '@fortawesome/free-regular-svg-icons'
 import { calcDisCount } from '../../utils/discount'
 import Rating from '../Rating/Rating'
 
-export default function ProductCard({productInfo}) {
+export default function ProductCard({ productInfo }) {
 
-  const {id,imageCover,price,ratingsAverage,category,title,ratingsQuantity,priceAfterDiscount}=productInfo
-    return (
-    <>
+  if (!productInfo) return null
+
+  const {
+    id,
+    imageCover,
+    price,
+    ratingsAverage,
+    category,
+    title,
+    ratingsQuantity,
+    priceAfterDiscount
+  } = productInfo
+
+  return (
     <section>
-        <div className="card   bg-white relative rounded-xl shadow-lg overflow-hidden border border-primary-600/20 ">
-        <div className="relative">
-           <Link className='block'  to={`/productdetails/${id}`}>
-                                   <img src={imageCover}  className="w-44 h-52 object-contain  mx-auto" />
-                                </Link>
-            
-        </div>
-        <div className="content  p-4 space-y-1.5">
-            <span className='text-sm  text-gray-500'>{category.name}</span>
-            <h2 className='font-semibold line-clamp-1'> 
-              <Link  to={`/productdetails/${id}`}>{title}</Link>
-            </h2>
-            <div className="rating flex gap-2 items-center">
-              <Rating rating={ratingsAverage}/>
-                <span>({ratingsAverage})</span>
-                 <span>{ratingsQuantity}</span>
-                 
-            </div>
-             
-            <div className="flex justify-between items-center">
-                 <div className='price space-x-2'>
-                    <span className="text-lg text-primary-600 font-bold">{priceAfterDiscount ? priceAfterDiscount : price}$</span>
-                 {priceAfterDiscount &&<del className='text-gray-500'>{price}$</del>}
-                 </div>
-                 <button className="btn hover:bg-primary-700 transition-colors duration-200 bg-primary-600 text-white rounded-full p-0 size-8">
-                    <FontAwesomeIcon icon={faPlus} />
-                 </button>
-            </div>
-                <div className="  text-xl py-2 px-2 rounded-full actions absolute top-4 right-1 flex flex-col gap-4 *:text-gray-500 *:hover:text-primary-600 *:transition-colors *:duration-200">
-                            <button  >
-                                <FontAwesomeIcon icon={faHeart} />
-                            </button>
-                            <button>
-                              <FontAwesomeIcon icon={faCodeCompare} />
-                            </button>
-                            <button>
-                                <Link to={`/productdetails/${id}`}>
-                                 <FontAwesomeIcon icon={faEye} />
-                                </Link>
-                            </button>
-                </div>
-                  {priceAfterDiscount && <span className="badges text-sm badges absolute top-4 left-4 bg-red-600 text-white px-2 py-1 rounded-md">-{calcDisCount(price,priceAfterDiscount)}%</span>}
-        </div>
+      <div
+        className="
+          card bg-white relative rounded-xl shadow-lg
+          h-[420px] flex flex-col overflow-hidden
+          border border-primary-600/20
+        "
+      >
+        {/* Image */}
+        <div className="relative h-[220px] flex items-center justify-center">
+          <Link className="block" to={`/productdetails/${id}`}>
+            <img
+              src={imageCover || cover}
+              alt={title}
+              className="w-44 h-52 object-contain mx-auto"
+            />
+          </Link>
         </div>
 
+        {/* Content */}
+        <div className="content p-4 space-y-1.5 flex flex-col flex-1">
+          <span className="text-sm text-gray-500">
+            {category?.name}
+          </span>
+
+          <h2 className="font-semibold line-clamp-1">
+            <Link to={`/productdetails/${id}`}>{title}</Link>
+          </h2>
+
+          {/* Rating */}
+          <div className="rating flex gap-2 items-center">
+            <Rating rating={ratingsAverage} />
+            <span>({ratingsAverage})</span>
+            <span>{ratingsQuantity}</span>
+          </div>
+
+          {/* Price + Button */}
+          <div className="flex justify-between items-center mt-auto">
+            <div className="price space-x-2">
+              <span className="text-lg text-primary-600 font-bold">
+                {priceAfterDiscount ? priceAfterDiscount : price}$
+              </span>
+
+              {priceAfterDiscount && (
+                <del className="text-gray-500">{price}$</del>
+              )}
+            </div>
+
+            <button className="btn hover:bg-primary-700 transition-colors duration-200 bg-primary-600 text-white rounded-full p-0 size-8">
+              <FontAwesomeIcon icon={faPlus} />
+            </button>
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="text-xl py-2 px-2 rounded-full actions absolute top-4 right-1 flex flex-col gap-4 *:text-gray-500 *:hover:text-primary-600 *:transition-colors *:duration-200">
+          <button>
+            <FontAwesomeIcon icon={faHeart} />
+          </button>
+          <button>
+            <FontAwesomeIcon icon={faCodeCompare} />
+          </button>
+          <button>
+            <Link to={`/productdetails/${id}`}>
+              <FontAwesomeIcon icon={faEye} />
+            </Link>
+          </button>
+        </div>
+
+        {/* Discount Badge */}
+        {priceAfterDiscount && (
+          <span className="badges text-sm absolute top-4 left-4 bg-red-600 text-white px-2 py-1 rounded-md">
+            -{calcDisCount(price, priceAfterDiscount)}%
+          </span>
+        )}
+      </div>
     </section>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </>
   )
 }
+
